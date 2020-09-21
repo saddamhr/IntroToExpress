@@ -1,23 +1,14 @@
 const router = require('express').Router()
+const { getAllPost, getSinglePost, createNewPost, updatePost, deletePost} = require('./postController')
 
-router.get('/', (req, res) => {
-    res.send(`Render All Posts`)
-})
+router.get('/', getAllPost)
 
-router.get('/:postId', (req, res) => {
-    res.send(`I am Post = ${req.params.id}`)
-})
+router.get('/:postId', getSinglePost)
 
-router.post('/', (req, res) => {
-    res.send(`Crete a New Post`)
-})
+router.post('/', createNewPost)
 
-router.put('/:postId', (req, res) => {
-    res.send(`Update your existing post = ${req.params.postId}`)
-})
+router.put('/:postId', updatePost)
 
-router.delete('/:postId', (req, res) => {
-    res.send(`Delete your existing post = ${req.params.postId}`)
-})
+router.delete('/:postId', deletePost)
 
 module.exports = router
